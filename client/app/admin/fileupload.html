@@ -1,0 +1,35 @@
+<div class="page-body" style="height: 100%">
+<div ng-include="'components/navbar/navbarAdmin.html'"></div>
+<div ng-include="'components/sidebar/sidebar.html'"></div>
+<div class="main-content col-sm-10">
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <div class="panel-title">
+            图片上传
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <script type="text/javascript">
+            jQuery(document).ready(function($){
+                $("#myupload").dropzone({ url: "/uploadServer" });
+            })
+        </script>
+        <!-- Auto initialization -->
+        <form action="/uploadServer" class="dropzone dz-clickable" id="myupload"><div class="dz-default dz-message"><span>把图片拖放到该窗口</span></div></form>
+
+    </div>
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
