@@ -1,5 +1,6 @@
 'use strict';
 
+
 angular.module('angularExpressApp', [
   'ngCookies',
   'ngResource',
@@ -7,7 +8,29 @@ angular.module('angularExpressApp', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap'
-])
+]).directive('ckEditor', [function () {
+        return {
+            require: '?ngModel',
+            restrict: 'C',
+            link: function(scope, elm, attr, ngModel) {
+                console.log("进来了吗");
+                var ck = CKEDITOR.replace(elm[0]);
+
+                if (!ngModel) return;
+
+                ck.on('pasteState', function() {
+                    scope.$apply(function() {
+                        ngModel.$setViewValue(ck.getData());
+
+                    });
+                });
+
+                ngModel.$render = function(value) {
+                    ck.setData(ngModel.$viewValue);
+                };
+            }
+        };
+    }])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
       .otherwise('/');
