@@ -1,7 +1,7 @@
 <div class="page-body" style="height: 100%">
     <div ng-include="'components/navbar/navbarAdmin.html'"></div>
     <div ng-include="'components/sidebar/sidebar.html'"></div>
-    <div class="main-content col-sm-10" ng-controller="AddPostCtrl">
+    <div class="main-content col-sm-10" >
         <div class="panel panel-default" >
             <div class="panel-heading">
                 <div class="panel-title">
@@ -31,11 +31,9 @@
                         <!-- Textarea -->
                         <label class="col-sm-2 control-label">内容</label>
                          <div class="col-sm-10">
-                                <textarea id="content" class="col-sm-12" class="ck-editor" ng-model="content"> </textarea>
+                             <textarea ckeditor="editorOptions" ng-model="content"></textarea>
                           </div>
-                        <script type="text/javascript">
-                            CKEDITOR.replace( 'content' );
-                        </script>
+
                     </div>
                     </fieldset>
 

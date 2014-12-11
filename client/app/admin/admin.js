@@ -21,4 +21,10 @@ angular.module('angularExpressApp')
             controller: 'AddPostCtrl',
             authenticate: true
         })
+        .state('postsManager',{
+            url:'/admin/postsManager',
+            templateUrl: 'app/admin/post/postsManager.html',
+            controller: 'PostsManagerCtrl',
+            authenticate: true
+        })
   });
