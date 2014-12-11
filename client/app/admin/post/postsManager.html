@@ -1,0 +1,47 @@
+<div class="page-body" style="height: 100%">
+    <div ng-include="'components/navbar/navbarAdmin.html'"></div>
+    <div ng-include="'components/sidebar/sidebar.html'"></div>
+    <div class="main-content col-sm-10" >
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    文章列表
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table " >
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>标题</th>
+                        <th>内容</th>
+                        <th>发布状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="post in postList">
+                        <td>{{$index}}</td>
+                        <td >{{post.title}}</td>
+                        <td ng-bind-html="post.content"></td>
+                        <td ng-if="post.publicNow==true">已发布</td>
+                        <td ng-if="post.publicNow==false">未发布</td>
+                        <td><button class="btn btn-danger" ng-click="delete(this)">删除</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+</div>
+
+
+
+
